@@ -17,6 +17,11 @@ public class LoanMatcher {
             loan.setType("GUARANTEE_LOAN");
             loans.add(loan);
         }
+        if (customer.income() >= 5000) {
+            Loan loan2 = new Loan();
+            loan2.setType("CONSIGNED_LOAN");
+            loans.add(loan2);
+        }
         return loans;
     }
 }
