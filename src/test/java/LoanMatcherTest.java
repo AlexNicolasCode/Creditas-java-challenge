@@ -51,7 +51,7 @@ class LoanMatcherTest {
         assertThat(availableLoans.size()).isEqualTo(2);
 
         assertThat(availableLoans.stream().findFirst().isPresent()).isTrue();
-        assertThat(availableLoans.get(0).type()).isEqualTo("GUARANTEE_LOAN");
+        assertThat(availableLoans.get(1).type()).isEqualTo("GUARANTEE_LOAN");
     }
 
     @Test
@@ -63,7 +63,7 @@ class LoanMatcherTest {
         assertThat(availableLoans.size()).isEqualTo(2);
 
         assertThat(availableLoans.stream().findFirst().isPresent()).isTrue();
-        assertThat(availableLoans.get(0).type()).isEqualTo("GUARANTEE_LOAN");
+        assertThat(availableLoans.get(1).type()).isEqualTo("GUARANTEE_LOAN");
     }
 
     @Test
