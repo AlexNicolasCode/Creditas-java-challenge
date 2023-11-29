@@ -10,17 +10,12 @@ public class LoanMatcher {
 
     public List<Loan> loans() {
         List<Loan> loans = new ArrayList<>();
-        Loan loan = new Loan();
-        loan.setType("PERSONAL_LOAN");
-        loans.add(loan);
+        loans.add(new Loan("PERSONAL_LOAN"));
         if (customer.age() < 30 || customer.location() == "SP") {
-            loan.setType("GUARANTEE_LOAN");
-            loans.add(loan);
+            loans.add(new Loan("GUARANTEE_LOAN"));
         }
         if (customer.income() >= 5000) {
-            Loan loan2 = new Loan();
-            loan2.setType("CONSIGNED_LOAN");
-            loans.add(loan2);
+            loans.add(new Loan("CONSIGNED_LOAN"));
         }
         return loans;
     }
