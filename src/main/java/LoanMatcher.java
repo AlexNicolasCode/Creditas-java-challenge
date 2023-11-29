@@ -13,7 +13,7 @@ public class LoanMatcher {
         Loan loan = new Loan();
         loan.setType("PERSONAL_LOAN");
         loans.add(loan);
-        if (customer.age() < 30) {
+        if (customer.age() < 30 || customer.location() == "SP") {
             loan.setType("GUARANTEE_LOAN");
             loans.add(loan);
         }

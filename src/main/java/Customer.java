@@ -1,8 +1,10 @@
 public class Customer {
+    private final String location;
     private final int age;
     private final int income;
 
-    public Customer(int age, int income) {
+    public Customer(String location, int age, int income) {
+        this.location = location;
         this.age = age;
         this.income = income;
     }
@@ -13,5 +15,9 @@ public class Customer {
 
     public int age() {
         return this.age;
+    }
+
+    public String location() {
+        return this.location;
     }
 }
