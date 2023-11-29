@@ -77,4 +77,17 @@ class LoanMatcherTest {
         assertThat(availableLoans.stream().findFirst().isPresent()).isTrue();
         assertThat(availableLoans.get(1).type()).isEqualTo("CONSIGNED_LOAN");
     }
+
+    @Test
+    void returnsPersonalLoanWithCorrectTax() {
+        Customer customer = new Customer("PB", 31, 2000);
+        LoanMatcher loanMatcher = new LoanMatcher(customer);
+        List<Loan> availableLoans = loanMatcher.loans();
+
+        assertThat(availableLoans.size()).isEqualTo(1);
+
+        assertThat(availableLoans.stream().findFirst().isPresent()).isTrue();
+        assertThat(availableLoans.get(0).type()).isEqualTo("PERSONAL_LOAN");
+        assertThat(availableLoans.get(0).tax()).isEqualTo(4);
+    }
 }
