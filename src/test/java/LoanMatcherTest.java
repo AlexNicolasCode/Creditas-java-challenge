@@ -8,7 +8,7 @@ class LoanMatcherTest {
 
     @Test
     void returnsPersonalLoanWhenCustomerIncomeIsUnder3000() {
-        Customer customer = new Customer(3000);
+        Customer customer = new Customer(30, 3000);
         LoanMatcher loanMatcher = new LoanMatcher(customer);
         List<Loan> availableLoans = loanMatcher.loans();
 
@@ -20,7 +20,7 @@ class LoanMatcherTest {
 
     @Test
     void returnsPersonalLoanWhenCustomerIncomeIsBetween3000And5000() {
-        Customer customer = new Customer(4000);
+        Customer customer = new Customer(30, 4000);
         LoanMatcher loanMatcher = new LoanMatcher(customer);
         List<Loan> availableLoans = loanMatcher.loans();
 
@@ -32,7 +32,7 @@ class LoanMatcherTest {
 
     @Test
     void returnsPersonalLoanWhenCustomerIncomeIsMoreThan5000() {
-        Customer customer = new Customer(6000);
+        Customer customer = new Customer(30, 6000);
         LoanMatcher loanMatcher = new LoanMatcher(customer);
         List<Loan> availableLoans = loanMatcher.loans();
 
@@ -40,5 +40,17 @@ class LoanMatcherTest {
 
         assertThat(availableLoans.stream().findFirst().isPresent()).isTrue();
         assertThat(availableLoans.get(0).type()).isEqualTo("PERSONAL_LOAN");
+    }
+
+    @Test
+    void returnsGuaranteeLoanWhenCustomerAgeIsLessThan30() {
+        Customer customer = new Customer(29, 0);
+        LoanMatcher loanMatcher = new LoanMatcher(customer);
+        List<Loan> availableLoans = loanMatcher.loans();
+
+        assertThat(availableLoans.size()).isEqualTo(2);
+
+        assertThat(availableLoans.stream().findFirst().isPresent()).isTrue();
+        assertThat(availableLoans.get(0).type()).isEqualTo("GUARANTEE_LOAN");
     }
 }
