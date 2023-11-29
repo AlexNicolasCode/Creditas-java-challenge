@@ -103,4 +103,17 @@ class LoanMatcherTest {
         assertThat(availableLoans.get(1).type()).isEqualTo("GUARANTEE_LOAN");
         assertThat(availableLoans.get(1).tax()).isEqualTo(3);
     }
+
+    @Test
+    void returnsConsignedLoanWithCorrectTax() {
+        Customer customer = new Customer("PB", 31, 5001);
+        LoanMatcher loanMatcher = new LoanMatcher(customer);
+        List<Loan> availableLoans = loanMatcher.loans();
+
+        assertThat(availableLoans.size()).isEqualTo(2);
+
+        assertThat(availableLoans.stream().findFirst().isPresent()).isTrue();
+        assertThat(availableLoans.get(1).type()).isEqualTo("CONSIGNED_LOAN");
+        assertThat(availableLoans.get(1).tax()).isEqualTo(2);
+    }
 }
