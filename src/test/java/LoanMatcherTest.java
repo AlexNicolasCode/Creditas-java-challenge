@@ -32,11 +32,11 @@ class LoanMatcherTest {
 
     @Test
     void returnsPersonalLoanWhenCustomerIncomeIsMoreThan5000() {
-        Customer customer = new Customer("PB", 30, 6000);
+        Customer customer = new Customer("PB", 30, 5001);
         LoanMatcher loanMatcher = new LoanMatcher(customer);
         List<Loan> availableLoans = loanMatcher.loans();
 
-        assertThat(availableLoans.size()).isEqualTo(1);
+        assertThat(availableLoans.size()).isEqualTo(2);
 
         assertThat(availableLoans.stream().findFirst().isPresent()).isTrue();
         assertThat(availableLoans.get(0).type()).isEqualTo("PERSONAL_LOAN");
@@ -64,5 +64,17 @@ class LoanMatcherTest {
 
         assertThat(availableLoans.stream().findFirst().isPresent()).isTrue();
         assertThat(availableLoans.get(0).type()).isEqualTo("GUARANTEE_LOAN");
+    }
+
+    @Test
+    void returnsConsignedLoanWhenCustomerIncomeIsEqualOrMoreThan5000() {
+        Customer customer = new Customer("PB", 31, 5001);
+        LoanMatcher loanMatcher = new LoanMatcher(customer);
+        List<Loan> availableLoans = loanMatcher.loans();
+
+        assertThat(availableLoans.size()).isEqualTo(2);
+
+        assertThat(availableLoans.stream().findFirst().isPresent()).isTrue();
+        assertThat(availableLoans.get(1).type()).isEqualTo("CONSIGNED_LOAN");
     }
 }
