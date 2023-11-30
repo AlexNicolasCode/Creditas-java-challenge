@@ -14,6 +14,10 @@ test {
 }
 
 dependencies {
+    implementation("org.slf4j:slf4j-simple:2.0.7")
+    implementation("io.javalin:javalin:5.6.3")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.15.0")
+
     // we are using junit5 here but feel free to a version below this one
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
