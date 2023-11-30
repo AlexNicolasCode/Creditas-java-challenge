@@ -8,7 +8,7 @@ class LoanMatcherTest {
 
     @Test
     void returnsPersonalLoanWhenCustomerIncomeIsUnder3000() {
-        Customer customer = new Customer("PB", 30, 3000);
+        Customer customer = new Customer("Tester", "PB", 30, 3000);
         LoanMatcher loanMatcher = new LoanMatcher(customer);
         List<Loan> availableLoans = loanMatcher.loans();
 
@@ -20,7 +20,7 @@ class LoanMatcherTest {
 
     @Test
     void returnsPersonalLoanWhenCustomerIncomeIsBetween3000And5000() {
-        Customer customer = new Customer("PB", 30, 4000);
+        Customer customer = new Customer("Tester", "PB", 30, 4000);
         LoanMatcher loanMatcher = new LoanMatcher(customer);
         List<Loan> availableLoans = loanMatcher.loans();
 
@@ -32,7 +32,7 @@ class LoanMatcherTest {
 
     @Test
     void returnsPersonalLoanWhenCustomerIncomeIsMoreThan5000() {
-        Customer customer = new Customer("PB", 30, 5001);
+        Customer customer = new Customer("Tester", "PB", 30, 5001);
         LoanMatcher loanMatcher = new LoanMatcher(customer);
         List<Loan> availableLoans = loanMatcher.loans();
 
@@ -44,7 +44,7 @@ class LoanMatcherTest {
 
     @Test
     void returnsGuaranteeLoanWhenCustomerAgeIsLessThan30() {
-        Customer customer = new Customer("PB", 29, 0);
+        Customer customer = new Customer("Tester", "PB", 29, 0);
         LoanMatcher loanMatcher = new LoanMatcher(customer);
         List<Loan> availableLoans = loanMatcher.loans();
 
@@ -56,7 +56,7 @@ class LoanMatcherTest {
 
     @Test
     void returnsGuaranteeLoanWhenCustomerLocationIsSP() {
-        Customer customer = new Customer("SP", 31, 0);
+        Customer customer = new Customer("Tester", "SP", 31, 0);
         LoanMatcher loanMatcher = new LoanMatcher(customer);
         List<Loan> availableLoans = loanMatcher.loans();
 
@@ -68,7 +68,7 @@ class LoanMatcherTest {
 
     @Test
     void returnsConsignedLoanWhenCustomerIncomeIsEqualOrMoreThan5000() {
-        Customer customer = new Customer("PB", 31, 5001);
+        Customer customer = new Customer("Tester", "PB", 31, 5001);
         LoanMatcher loanMatcher = new LoanMatcher(customer);
         List<Loan> availableLoans = loanMatcher.loans();
 
@@ -80,7 +80,7 @@ class LoanMatcherTest {
 
     @Test
     void returnsPersonalLoanWithCorrectTax() {
-        Customer customer = new Customer("PB", 31, 2000);
+        Customer customer = new Customer("Tester", "PB", 31, 2000);
         LoanMatcher loanMatcher = new LoanMatcher(customer);
         List<Loan> availableLoans = loanMatcher.loans();
 
@@ -93,7 +93,7 @@ class LoanMatcherTest {
 
     @Test
     void returnsGuaranteeLoanWithCorrectTax() {
-        Customer customer = new Customer("PB", 29, 3000);
+        Customer customer = new Customer("Tester", "PB", 29, 3000);
         LoanMatcher loanMatcher = new LoanMatcher(customer);
         List<Loan> availableLoans = loanMatcher.loans();
 
@@ -106,7 +106,7 @@ class LoanMatcherTest {
 
     @Test
     void returnsConsignedLoanWithCorrectTax() {
-        Customer customer = new Customer("PB", 31, 5001);
+        Customer customer = new Customer("Tester", "PB", 31, 5001);
         LoanMatcher loanMatcher = new LoanMatcher(customer);
         List<Loan> availableLoans = loanMatcher.loans();
 
