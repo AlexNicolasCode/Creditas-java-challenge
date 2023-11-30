@@ -24,4 +24,6 @@ dependencies {
 
     // we are using this to make more fluent assertions
     testCompile group: 'org.assertj', name: 'assertj-core', version: '3.6.1'
+
+    testCompile group: 'com.github.javafaker', name: 'javafaker', version: '0.15'
 }
